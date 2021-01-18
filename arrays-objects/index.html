@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+
+        // Multidimensional arrays
+        const ages = [
+            [11, 82, 73],
+            [9, 82, 78],
+            [9, 34, 2]
+        ]
+
+        let sum = 0
+
+        // const flatAges = ages.flat()
+        // flatAges.forEach(elm => sum += elm)
+
+        ages.forEach(elm => elm.forEach(elm2 => sum += elm2))
+
+        console.log('Las edades suman', sum)
+
+    </script>
+
+</body>
+
+</html>

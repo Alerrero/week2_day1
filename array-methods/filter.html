@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // .filter() recibe como argumento una función
+        // .filter() retorna un nuevo array de una longitud igual o inferior al original
+        // .filter() incluye en el array resultante aquellas posiciones (sin modificar) cuya iteración retorne truthy
+
+
+        const numbers = [2, 3, 4, 5, 6, 7, 9]
+
+        // const highNumbs = numbers.filter(elm => {
+        //     if (elm >= 5) {
+        //         return true
+        //     }
+        // })
+        const highNumbs = numbers.filter(elm => elm >= 5)
+        console.log('Los números altos:', highNumbs)
+
+
+        const evenNumbs = numbers.filter(elm => elm % 2 === 0)
+        console.log('Los números pares son', evenNumbs)
+
+
+
+
+
+
+        const people = [
+            { name: "Candice", age: 25 },
+            { name: "Tammy", age: 30 },
+            { name: "Allen", age: 20 },
+            { name: "Nettie", age: 21 },
+            { name: "Stuart", age: 17 },
+            { name: "Bill", age: 19 }
+        ]
+
+        const admitted = people.filter(elm => elm.age >= 21)
+
+        console.log('Pueden beber:', admitted)
+
+
+
+
+
+
+        const places = [
+            {
+                title: "Awesome Suite 20' away from la Rambla",
+                price: 200,
+                type: "Private Room",
+                pool: true,
+                garage: false
+            },
+            {
+                title: "Private apartment",
+                price: 190,
+                type: "Entire Place",
+                pool: true,
+                garage: true
+            },
+            {
+                title: "Apartment with awesome views",
+                price: 400,
+                type: "Entire Place",
+                pool: false,
+                garage: false
+            },
+            {
+                title: "Apartment in la Rambla",
+                price: 150,
+                type: "Private Room",
+                pool: false,
+                garage: true
+            },
+            {
+                title: "Comfortable place in Barcelona´s center",
+                price: 390,
+                type: "Entire place",
+                pool: true,
+                garage: true
+            },
+            {
+                title: "Room near Sagrada Familia",
+                price: 170,
+                type: "Private Room",
+                pool: false,
+                garage: false
+            },
+            {
+                title: "Great house next to Camp Nou",
+                price: 140,
+                type: "Entire place",
+                pool: true,
+                garage: true
+            }
+        ]
+
+
+        const cheapPlaces = places.filter(elm => elm.price < 500)
+        console.log('Las casas baratas son', cheapPlaces)
+
+
+        const poolPlaces = places.filter(elm => elm.pool)
+        console.log('Las casas con piscina son', poolPlaces)
+
+
+        const poolAndParking = places.filter(elm => elm.pool && elm.garage)
+        console.log('Las casas con piscina y garaje son', poolAndParking)
+
+
+        const advancedPlaces = places.filter(elm => elm.type.toLowerCase() === 'private room' || elm.price < 700)
+        console.log('Las casas privadas o las casas baratas son', advancedPlaces)
+
+
+        const ramblasPlaces = places.filter(elm => elm.title.includes('Rambla'))
+        console.log('Las habitaciones de la Rambla son', ramblasPlaces)
+
+
+
+    </script>
+</body>
+
+</html>

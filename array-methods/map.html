@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // .map() recibe como argumento una función
+        // .map() aplica la función a cada posición del array
+        // .map() retorna un nuevo array de la misma longitud con el retorno de la función en cada posición
+
+
+        const values = [2, 4, 6]
+
+        // const result = values.map(elm => elm * 2)        // sin bloques? retorno automático
+        const result = values.map(elm => {
+            return elm * 2
+        })
+
+        console.log('El resultado es:', result)
+
+
+
+
+
+
+
+
+
+        const cities = ['madrid', 'gijón', 'amsterdam', 'berlin']
+
+        const capitalizedCities = cities.map(elm => {
+            const firstLetter = elm.charAt(0).toUpperCase()
+            const rest = elm.substring(1)
+            const result = firstLetter + rest
+            return result
+        })
+
+        console.log(capitalizedCities)
+
+
+
+
+
+
+
+
+
+        const students = [
+            {
+                name: "Tony Parker",
+                firstProject: 80,
+                secondProject: 75,
+                finalExam: 90
+            },
+            {
+                name: "Marc Barchini",
+                firstProject: 84,
+                secondProject: 65,
+                finalExam: 65
+            },
+            {
+                name: "Claudia Lopez",
+                firstProject: 45,
+                secondProject: 95,
+                finalExam: 99
+            }
+        ]
+
+
+
+
+
+
+        // // 1.- Solo las notas finales
+        // const finalDegrees = students.map(elm => {
+        //     const projectsAvg = (elm.firstProject + elm.secondProject) / 2
+        //     const finalGrade = elm.finalExam * .6 + projectsAvg * .4
+        //     return finalGrade
+        // })
+
+
+
+
+        // // 2.- Notas finales + nombre
+        // const finalDegrees = students.map(elm => {
+        //     const projectsAvg = (elm.firstProject + elm.secondProject) / 2
+        //     const finalGrade = elm.finalExam * 0.6 + projectsAvg * 0.4
+        //     const result = {
+        //         name: elm.name,
+        //         finalGrade: finalGrade
+        //     }
+
+        //     return result
+        // })
+
+
+
+
+        // // 3.- Toda la info + notas finales (manual)
+        // const finalDegrees = students.map(elm => {
+        //     const projectsAvg = (elm.firstProject + elm.secondProject) / 2
+        //     const finalGrade = elm.finalExam * 0.6 + projectsAvg * 0.4
+        //     const result = {
+        //         name: elm.name,
+        //         firstProject: elm.firstProject,
+        //         secondProject: elm.secondProject,
+        //         finalExam: elm.finalExam,
+        //         finalGrade: finalGrade,
+        //     }
+        //     return result
+        // })
+
+
+
+
+        // 4.- Toda la info + notas finales (spread operator)
+        const finalDegrees = students.map(elm => {
+            const projectsAvg = (elm.firstProject + elm.secondProject) / 2
+            const finalGrade = elm.finalExam * 0.6 + projectsAvg * 0.4
+            const result = {
+                ...elm,         // Spread operator: removes block from objects
+                finalGrade: finalGrade,
+            }
+            return result
+        })
+
+
+        console.log('Los alumnos con finales son:', finalDegrees)
+
+
+    </script>
+</body>
+
+</html>
